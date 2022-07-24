@@ -8,6 +8,7 @@ export interface User {
     lastName: string;
     email: string;
     capabilities: string[];
+    onClick: string;
 }
 
 interface AuthData {
@@ -36,6 +37,47 @@ export const GET_USER = gql`
       lastName
       email
       capabilities
+    }
+  }
+`;
+
+export const LOG_IN = gql`
+  mutation logIn($login: String!, $password: String!) {
+    loginWithCookies(input: {
+      login: $login
+      password: $password
+      rememberMe: true
+    }) {
+      status
+    }
+  }
+`;
+
+export const REGISTER_USER = gql`
+  mutation registerUser(
+    $email: String!
+    $firstName: String!
+    $lastName: String!
+  ) {
+    registerUser(
+      input: {
+        username: $email
+        email: $email
+        firstName: $firstName
+        lastName: $lastName
+      }
+    ) {
+      user {
+        databaseId
+      }
+    }
+  }
+`;
+
+export const LOG_OUT = gql`
+  mutation logOut {
+    logout(input: {}) {
+      status
     }
   }
 `;

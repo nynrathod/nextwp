@@ -1,15 +1,13 @@
 import Layout from "../components/Layout";
 import UnAuthContent from "../components/UnAuthContent";
-import SignUpForm from "../components/SignUpForm"
+import SendPasswordResetEmailForm from "../components/SendPasswordResetEmailForm";
 
-export default function LogIn() {
+export default function ForgotPassword() {
     return (
         <Layout>
             <UnAuthContent>
-                <SignUpForm />
+                <SendPasswordResetEmailForm />
             </UnAuthContent>
         </Layout>
-    );
+    )
 }
-
-
