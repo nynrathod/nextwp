@@ -30,7 +30,7 @@ export default function Articles({ posts }: { posts: any; }) {
     );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     const GET_POSTS = gql`
     query AllPostsQuery {
       posts {
@@ -58,7 +58,6 @@ export async function getStaticProps() {
     return {
         props: {
             posts,
-        },
-        revalidate: 10
+        }
     }
 }
