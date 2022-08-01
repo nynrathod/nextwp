@@ -34,7 +34,7 @@ export default function SendPasswordResetEmailForm() {
     }
 
     (wasEmailSent ?
-        toast.success('Email sent for password reset', { toastId: 'restpass', autoClose: 5000 })
+        toast.success('Email sent for password reset', { toastId: 'restpassmail', autoClose: 5000 })
         : ''
     )
 

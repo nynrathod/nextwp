@@ -1,18 +1,16 @@
-/* eslint-disable jsx-a11y/alt-text */
-import React from "react";
+import React, { Fragment } from "react";
 import Link from "next/link";
-import styles from "@styles/Home.module.css";
-import { Fragment } from "react";
-import { Popover, Menu, Transition } from "@headlessui/react";
+import Image from "next/image";
 
 import { useMutation, gql } from "@apollo/client";
-
-import useAuth, { GET_USER } from "@hooks/useAuth";
+import { Popover, Menu, Transition } from "@headlessui/react";
 import { IoIosLogIn, IoMdNotificationsOutline } from 'react-icons/io';
 import { IoCloseOutline } from 'react-icons/io5';
 import { HiOutlineMenuAlt3 } from 'react-icons/hi';
 
-import Image from "next/image";
+import useAuth, { GET_USER } from "@hooks/useAuth";
+
+import styles from "@styles/Home.module.css";
 
 const LOG_OUT = gql`
   mutation logOut {

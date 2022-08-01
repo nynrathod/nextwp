@@ -1,5 +1,6 @@
 import { useEffect, ReactNode } from "react";
 import { useRouter } from "next/router";
+
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 

@@ -85,7 +85,7 @@ export default function SignUpForm() {
                             {error ? (
                                 (error.message.includes('This username is already registered') ? (
                                     <p className="error-message">
-                                        You are already signed up! <Link href="/login">Log in</Link>
+                                        You are already signed up! <Link href="/user/login">Log in</Link>
                                     </p>
                                 ) : (
                                     <p className="error-message">{error.message}</p>

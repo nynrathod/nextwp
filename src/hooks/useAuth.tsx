@@ -27,7 +27,6 @@ const DEFAULT_STATE: AuthData = {
 
 const AuthContext = createContext(DEFAULT_STATE);
 
-
 export const GET_USER = gql`
   query getUser {
     viewer {

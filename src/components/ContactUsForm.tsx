@@ -1,7 +1,8 @@
 import Link from "next/link"
-import { useMutation, gql } from "@apollo/client";
 
+import { useMutation, gql } from "@apollo/client";
 import { ToastContainer, toast } from 'react-toastify';
+
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -37,7 +38,7 @@ export default function ContactUsForm() {
         });
     }
 
-    toast.success(<div><strong>Mail Sent</strong><br /> Check you mail for verification</div>, { toastId: 'signupsuccess', autoClose: 5000 });
+    toast.success(<div>Thans for contacting us <br />We will get in touch with you shortly</div >, { toastId: 'contactemailsent', autoClose: 5000 });
     return (
         <>
             {wasSentMail ? <ToastContainer /> : ''}

@@ -1,8 +1,9 @@
+import { useRouter } from "next/router";
 
 import { client } from '../../lib/apollo';
 import { gql } from "@apollo/client";
+
 import Layout from '@components/Layout';
-import { useRouter } from "next/router";
 
 export default function SlugPage({ post }: { post: any }) {
     const router = useRouter();

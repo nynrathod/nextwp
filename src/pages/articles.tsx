@@ -1,7 +1,8 @@
 import React from "react";
-import Layout from "@components/Layout";
 import { client } from '../lib/apollo';
 import { gql } from "@apollo/client";
+
+import Layout from "@components/Layout";
 import PostCard from "@components/Post/PostCard";
 
 export default function Articles({ posts }: { posts: any; }) {

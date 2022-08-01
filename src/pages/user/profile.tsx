@@ -1,4 +1,5 @@
 import AuthContent from "@components/Auth/AuthContent";
+
 import Layout from "@components/Layout";
 import ProfileForm from "@components/User/ProfileForm";
 

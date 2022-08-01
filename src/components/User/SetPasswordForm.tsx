@@ -1,7 +1,9 @@
 import { useState } from "react";
-import { useMutation, gql } from "@apollo/client";
 import Link from "next/link";
 import { useRouter } from "next/router";
+
+import { useMutation, gql } from "@apollo/client";
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -75,7 +77,7 @@ export default function SetPasswordForm({ resetKey: key, login }: Props) {
 
     (wasPasswordReset ?
         setTimeout(() => {
-            router.push('/login')
+            router.push('/user/login')
         }, 5000) : ''
     )
 
@@ -132,10 +134,10 @@ export default function SetPasswordForm({ resetKey: key, login }: Props) {
                                     <span className="block w-max mx-auto -mt-3 px-4 text-center text-gray-500 bg-white">Or</span>
                                 </div>
                                 <div className="flex justify-center">
-                                    <Link href="/login">
+                                    <Link href="/user/login">
                                         <a className="text-center inline-block pt-5 underline text-sm tracking-wide text-gray-800 mr-5">Sign In</a>
                                     </Link>
-                                    <Link href="/signup">
+                                    <Link href="/user/signup">
                                         <a className="text-center inline-block pt-5 underline text-sm tracking-wide text-gray-800">Sign Up</a>
                                     </Link>
                                 </div>
