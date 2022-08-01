@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
 
+
 const SEND_EMAIL = gql`
 mutation SEND_EMAIL {
     sendEmail(
