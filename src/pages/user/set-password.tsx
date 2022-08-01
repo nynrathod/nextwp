@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 
-import Layout from "../components/Layout";
-import SetPasswordForm from "../components/SetPasswordForm";
+import Layout from "@components/Layout";
+import SetPasswordForm from "@components/User/SetPasswordForm";
 
 export default function SetPassword() {
     const router = useRouter();

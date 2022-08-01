@@ -2,6 +2,7 @@ import Head from "next/head";
 import React, { ReactNode } from "react";
 
 import Header from "./Header";
+import Footer from "./Footer";
 
 export default function Layout({ children }: { children: ReactNode }) {
     return (
@@ -11,6 +12,7 @@ export default function Layout({ children }: { children: ReactNode }) {
             </Head>
             <Header />
             <main>{children}</main>
+            <Footer />
         </>
     );
 }

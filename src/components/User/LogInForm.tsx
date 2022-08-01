@@ -1,11 +1,22 @@
 import Link from "next/link"
-import { useMutation, gql } from "@apollo/client";
+import { useMutation } from "@apollo/client";
+import { gql } from "@apollo/client";
 
-import useAuth, { GET_USER, LOG_IN } from "../hooks/useAuth";
+import useAuth, { GET_USER } from "@hooks/useAuth";
 
+const LOG_IN = gql`
+  mutation logIn($login: String!, $password: String!) {
+    loginWithCookies(input: {
+      login: $login
+      password: $password
+      rememberMe: true
+    }) {
+      status
+    }
+  }
+`;
 
-
-export default function LoginForm() {
+export default function LogInForm() {
     const { loggedIn } = useAuth();
     const [logIn, { loading, error }] = useMutation(LOG_IN, {
         refetchQueries: [
@@ -80,7 +91,6 @@ export default function LoginForm() {
                                 </div>
                                 <Link href="/signup">
                                     <a className="text-center block pt-5 underline text-sm tracking-wide text-gray-800">Create new account</a>
-
                                 </Link>
                             </div>
                         </form>

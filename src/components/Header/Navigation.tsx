@@ -1,49 +1,52 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
+import styles from "@styles/Home.module.css";
 import { Fragment } from "react";
 import { Popover, Menu, Transition } from "@headlessui/react";
 
-import { useMutation } from "@apollo/client";
+import { useMutation, gql } from "@apollo/client";
 
-import useAuth, { GET_USER, LOG_OUT } from "../hooks/useAuth";
+import useAuth, { GET_USER } from "@hooks/useAuth";
 import { IoIosLogIn, IoMdNotificationsOutline } from 'react-icons/io';
 import { IoCloseOutline } from 'react-icons/io5';
 import { HiOutlineMenuAlt3 } from 'react-icons/hi';
 
+import Image from "next/image";
+
+const LOG_OUT = gql`
+  mutation logOut {
+    logout(input: {}) {
+      status
+    }
+  }
+`;
+
 const user = {
-    name: "Tom Cook",
-    email: "tom@example.com",
     imageUrl:
         "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
 };
 
 const navigation = [
-    { name: "Posts", href: "/posts", current: true },
+    { name: "Articles", href: "/articles", current: true },
     { name: "About Us", href: "/about-us", current: false },
-    { name: "Login", href: "/login", current: false },
-    { name: "Signup", href: "/signup", current: false },
-    { name: "Contact Us", href: "contact-us", current: false },
+    { name: "Login", href: "/user/login", current: false },
+    { name: "Signup", href: "/user/signup", current: false },
+    { name: "Contact Us", href: "/contact-us", current: false },
 ];
+
 const userNavigation = [
-    { name: "Your Profile", href: "/profile" },
+    { name: "Your Profile", href: "/user/profile" },
     { name: "Settings", href: "#" },
 ];
-function classNames(...classes: any[]) {
-    return classes.filter(Boolean).join(" ");
-}
 
-export default function Header() {
-    const [navbarOpen, setNavbarOpen] = React.useState(false);
+export default function Navigation() {
 
     const { loggedIn } = useAuth();
 
     const [logOut, { called, loading, error, data }] = useMutation(LOG_OUT, {
         refetchQueries: [{ query: GET_USER }],
     });
-    const loggedOut = Boolean(data?.logout?.status);
 
     // useEffect(() => {
     //     logOut();
@@ -56,7 +59,7 @@ export default function Header() {
 
     return (
         <>
-            <header className="main-header">
+            <header className="main-header sticky top-0 z-50">
                 <Popover className="relative bg-gray-800">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="flex items-center justify-between h-16">
@@ -88,13 +91,7 @@ export default function Header() {
                                         {navigation.map((item) => (
                                             <Link href={item.href} key={item.name}>
                                                 <a
-                                                    className={classNames(
-                                                        item.current
-                                                            ? "bg-gray-900 text-white"
-                                                            : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                                                        "px-3 py-2 rounded-md text-sm font-medium"
-                                                    )}
-                                                    aria-current={item.current ? "page" : undefined}
+                                                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                                                 >
                                                     {item.name}
                                                 </a>
@@ -103,6 +100,7 @@ export default function Header() {
                                     </div>
                                 </div>
                             </Popover.Group>
+
                             <div className="hidden md:block">
                                 <div className="ml-4 flex items-center md:ml-6">
                                     <button
@@ -121,12 +119,24 @@ export default function Header() {
                                                 <span className="sr-only">Open user menu</span>
                                                 {loading ? <span><svg role="status" className="inline mr-3 w-4 h-4 text-white animate-spin" viewBox="0 0 100 101" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="#aaa" /><path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="white" /></svg></span> :
                                                     <>{loggedIn ?
-                                                        // eslint-disable-next-line @next/next/no-img-element
-                                                        <img
-                                                            className="h-8 w-8 rounded-full"
-                                                            src={user.imageUrl} />
+                                                        <div
+                                                            style={{
+                                                                position: "relative",
+                                                                width: "30px",
+                                                                height: "30px",
+                                                                maxHeight: "30px",
+                                                                maxWidth: "100%",
+                                                            }}
+                                                        >
+                                                            <Image
+                                                                src={user.imageUrl}
+                                                                alt="Cloudflare Logo"
+                                                                className="h-8 w-8 rounded-full"
+                                                                width="100%" height="100%" layout="fill" objectFit="contain"
+                                                            />
+                                                        </div>
                                                         :
-                                                        <Link href="/login">
+                                                        <Link href="/user/login">
                                                             <a
                                                                 type="button"
                                                                 className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white text-2xl"
@@ -212,13 +222,7 @@ export default function Header() {
                                     {navigation.map((item) => (
                                         <Link href={item.href} key={item.name}>
                                             <a
-                                                className={classNames(
-                                                    item.current
-                                                        ? "bg-gray-900 text-white"
-                                                        : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                                                    "px-3 py-2 rounded-md text-sm font-medium"
-                                                )}
-                                                aria-current={item.current ? "page" : undefined}
+                                                className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                                             >
                                                 {item.name}
                                             </a>

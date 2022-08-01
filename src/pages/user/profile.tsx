@@ -1,6 +1,6 @@
-import AuthContent from "../components/AuthContent";
-import Layout from "../components/Layout";
-import ProfileForm from "../components/ProfileForm";
+import AuthContent from "@components/Auth/AuthContent";
+import Layout from "@components/Layout";
+import ProfileForm from "@components/User/ProfileForm";
 
 export default function Profile() {
     return (

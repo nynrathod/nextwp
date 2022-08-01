@@ -1,5 +1,4 @@
 import { useMutation, gql } from "@apollo/client";
-import Link from "next/link";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -38,7 +37,6 @@ export default function SendPasswordResetEmailForm() {
         toast.success('Email sent for password reset', { toastId: 'restpass', autoClose: 5000 })
         : ''
     )
-
 
     return (
         <>

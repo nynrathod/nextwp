@@ -1,0 +1,11 @@
+.greyC {
+    filter: gray;
+    -webkit-filter: grayscale(100%);
+    transition: 0.4s;
+}
+
+.greyC:hover {
+    filter: none;
+    -webkit-filter: none;
+    transition: 0.4s;
+}

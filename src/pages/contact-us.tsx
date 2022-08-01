@@ -1,12 +1,10 @@
-import Layout from "../components/Layout";
-import UnAuthContent from "../components/UnAuthContent";
+import Layout from "@components/Layout";
+import ContactUsForm from "@components/ContactUsForm"
 
-export default function LogIn() {
+export default function ContactUs() {
     return (
         <Layout>
-            <UnAuthContent>
-                Contact Us
-            </UnAuthContent>
+            <ContactUsForm />
         </Layout>
     );
 }

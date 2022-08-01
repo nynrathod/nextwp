@@ -1,13 +1,12 @@
-import Layout from "../components/Layout";
-import AuthContent from "../components/AuthContent";
+import Layout from "@components/Layout";
+import AuthContent from "@components/Auth/AuthContent";
 
 export default function MembersContent() {
-  return (
-    <Layout>
-      <h1>Members</h1>
-      <AuthContent>
-        <p>Here is some top-secret members-only content!</p>
-      </AuthContent>
-    </Layout>
-  );
+    return (
+        <Layout>
+            <AuthContent>
+                <p>Here is some top-secret members-only content!</p>
+            </AuthContent>
+        </Layout>
+    );
 }
