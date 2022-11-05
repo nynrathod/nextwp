@@ -73,10 +73,8 @@ export default function LogInForm() {
                                     placeholder="Password"
                                     className="w-full py-3 px-6 ring-1 ring-gray-300 focus:outline-none focus:ring-gray-900 rounded-lg placeholder-gray-600 bg-transparent transition disabled:ring-gray-200 disabled:bg-gray-100 disabled:placeholder-gray-400 focus:invalid:ring-red-400 focus:invalid:outline-none"
                                 />
-                                <Link href="/user/forgot-password">
-                                    <a type="reset" className="w-max p-3 -mr-3">
-                                        <span className="text-sm tracking-wide text-gray-800">Forgot password ?</span>
-                                    </a>
+                                <Link href="/user/forgot-password" className="w-max p-3 -mr-3">
+                                    <span className="text-sm tracking-wide text-gray-800">Forgot password ?</span>
                                 </Link>
                             </div>
                             <div>
@@ -87,8 +85,7 @@ export default function LogInForm() {
                                 <div role="hidden" className="mt-12 border-t">
                                     <span className="block w-max mx-auto -mt-3 px-4 text-center text-gray-500 bg-white">Or</span>
                                 </div>
-                                <Link href="/user/signup">
-                                    <a className="text-center block pt-5 underline text-sm tracking-wide text-gray-800">Create new account</a>
+                                <Link href="/user/signup" className="text-center block pt-5 underline text-sm tracking-wide text-gray-800">Create new account
                                 </Link>
                             </div>
                         </form>

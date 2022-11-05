@@ -26,32 +26,21 @@ const Home: NextPage = () => {
                                 Next.js and styled with Tailwind CSS
                             </p>
                             <div className="flex justify-center sm:m-auto md:ml-0">
-                                <Link href="/">
-                                    <a
-                                        className="inline-flex items-center px-5 py-3 mt-2 font-medium text-white transition duration-500 ease-in-out border rounded-lg bg-gray-800 hover:bg-gray-900"
-                                    >
-                                        <span className="justify-center">Find out more</span>
-                                    </a>
+                                <Link href="/"
+                                    className="inline-flex items-center px-5 py-3 mt-2 font-medium text-white transition duration-500 ease-in-out border rounded-lg bg-gray-800 hover:bg-gray-900"
+                                >
+                                    <span className="justify-center">Find out more</span>
+
                                 </Link>
                             </div>
                         </div>
                         <div className="w-2/4 mb-0 lg:mb-0 md:pl-10 m-auto">
-                            <div
-                                style={{
-                                    position: "relative",
-                                    width: "100%",
-                                    height: "550px",
-                                    maxHeight: "550px",
-                                    maxWidth: "100%",
-                                }}
-                            >
-                                <Image
-                                    className="w-80 md:ml-1 ml-24"
-                                    alt="iPhone-12"
-                                    src="/images/iPhone-12-Mockup.png"
-                                    width="100%" height="100%" layout="fill" objectFit="contain"
-                                />
-                            </div>
+                            <Image
+                                className="w-80 md:ml-1 ml-24"
+                                alt="iPhone-12"
+                                src="/images/iPhone-12-Mockup.png"
+                                width={100} height={100} objectFit="contain"
+                            />
                         </div>
                     </div>
                     <section className="mx-auto">
@@ -63,25 +52,15 @@ const Home: NextPage = () => {
                             </div>
                             <div className="grid grid-cols-2 gap-16 mb-16 text-center lg:grid-cols-4">
                                 <div className="flex items-center justify-center">
-                                    <div
-                                        style={{
-                                            position: "relative",
-                                            width: "100%",
-                                            height: "100px",
-                                            maxHeight: "100px",
-                                            maxWidth: "100%",
-                                        }}
-                                    >
-                                        <Image
-                                            src="/images/Google-Logo.webp"
-                                            alt="Google Logo"
-                                            className="block object-contain h-16 greyC"
-                                            width="100%" height="100%" layout="fill" objectFit="contain"
-                                        />
-                                    </div>
+                                    <Image
+                                        src="/images/Google-Logo.webp"
+                                        alt="Google Logo"
+                                        className="block object-contain h-16 greyC"
+                                        width={100} height={100} objectFit="contain"
+                                    />
                                 </div>
                                 <div className="flex items-center justify-center">
-                                    <div
+                                    {/* <div
                                         style={{
                                             position: "relative",
                                             width: "100%",
@@ -89,50 +68,30 @@ const Home: NextPage = () => {
                                             maxHeight: "100px",
                                             maxWidth: "100%",
                                         }}
-                                    >
-                                        <Image
-                                            src="/images/Shopify-Logo.svg"
-                                            alt="Shopify Logo"
-                                            className="block object-contain h-16 greyC"
-                                            width="100%" height="100%" layout="fill" objectFit="contain"
-                                        />
-                                    </div>
+                                    > */}
+                                    <Image
+                                        src="/images/Shopify-Logo.svg"
+                                        alt="Shopify Logo"
+                                        className="block object-contain h-16 greyC"
+                                        width={100} height={100} objectFit="contain"
+                                    />
+                                    {/* </div> */}
                                 </div>
                                 <div className="flex items-center justify-center">
-                                    <div
-                                        style={{
-                                            position: "relative",
-                                            width: "100%",
-                                            height: "100px",
-                                            maxHeight: "100px",
-                                            maxWidth: "100%",
-                                        }}
-                                    >
-                                        <Image
-                                            src="/images/Cloudflare-Logo.svg"
-                                            alt="Cloudflare Logo"
-                                            className="block object-contain h-16 greyC"
-                                            width="100%" height="100%" layout="fill" objectFit="contain"
-                                        />
-                                    </div>
+                                    <Image
+                                        src="/images/Cloudflare-Logo.svg"
+                                        alt="Cloudflare Logo"
+                                        className="block object-contain h-16 greyC"
+                                        width={100} height={100} objectFit="contain"
+                                    />
                                 </div>
                                 <div className="flex items-center justify-center">
-                                    <div
-                                        style={{
-                                            position: "relative",
-                                            width: "100%",
-                                            height: "100px",
-                                            maxHeight: "100px",
-                                            maxWidth: "100%",
-                                        }}
-                                    >
-                                        <Image
-                                            src="/images/PayPal-Logo.png"
-                                            alt="Paypal Logo"
-                                            className="block object-contain h-16 greyC"
-                                            width="100%" height="100%" layout="fill" objectFit="contain"
-                                        />
-                                    </div>
+                                    <Image
+                                        src="/images/PayPal-Logo.png"
+                                        alt="Paypal Logo"
+                                        className="block object-contain h-16 greyC"
+                                        width={100} height={100} objectFit="contain"
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -145,23 +104,13 @@ const Home: NextPage = () => {
                             Minify your CSS with Tailwinds built in PostCSS support.
                         </h1>
                         <div className="container flex flex-col items-center justify-center mx-auto rounded-lg">
-                            <div
-                                style={{
-                                    position: "relative",
-                                    width: "70%",
-                                    height: "300px",
-                                    maxHeight: "550px",
-                                    maxWidth: "100%",
-                                }}
-                                className="border border-gray-200"
-                            >
-                                <Image
-                                    className="w-80 md:ml-1 ml-24"
-                                    alt="Placeholder Image"
-                                    src="/images/placeholder.png"
-                                    width="100%" height="100%" layout="fill" objectFit="contain"
-                                />
-                            </div>
+
+                            <Image
+                                className="w-80 md:ml-1 ml-24"
+                                alt="Placeholder Image"
+                                src="/images/placeholder.png"
+                                width={100} height={100} objectFit="contain"
+                            />
                         </div>
                     </div>
                     <section className="relative">
@@ -180,12 +129,10 @@ const Home: NextPage = () => {
                                     autoComplete="email"
                                     className="border border-gray-600 w-1/4 pr-2 pl-2 py-3 mt-2 rounded-md text-gray-800 font-semibold hover:border-gray-900"
                                 ></input>
-                                <Link href="/">
-                                    <a
-                                        className="inline-flex items-center px-14 py-3 mt-2 ml-2 font-medium text-white ease-in-out border rounded-lg bg-gray-800 hover:bg-gray-900"
-                                    >
-                                        <span className="justify-center">Subscribe</span>
-                                    </a>
+                                <Link href="/"
+                                    className="inline-flex items-center px-14 py-3 mt-2 ml-2 font-medium text-white ease-in-out border rounded-lg bg-gray-800 hover:bg-gray-900"
+                                >
+                                    <span className="justify-center">Subscribe</span>
                                 </Link>
                             </div>
                         </div>

@@ -101,8 +101,7 @@ export default function SignUpForm() {
                                 </div>
                                 <div className="flex justify-center">
                                     <span className="text-center mr-2 pt-5 text-sm tracking-wide text-gray-800">Already have an account</span>
-                                    <Link href="/login">
-                                        <a className="text-center inline-block pt-5 underline text-sm tracking-wide text-gray-800">Sign In</a>
+                                    <Link href="/login" className="text-center inline-block pt-5 underline text-sm tracking-wide text-gray-800">Sign In
 
                                     </Link>
                                 </div>

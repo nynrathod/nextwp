@@ -134,11 +134,9 @@ export default function SetPasswordForm({ resetKey: key, login }: Props) {
                                     <span className="block w-max mx-auto -mt-3 px-4 text-center text-gray-500 bg-white">Or</span>
                                 </div>
                                 <div className="flex justify-center">
-                                    <Link href="/user/login">
-                                        <a className="text-center inline-block pt-5 underline text-sm tracking-wide text-gray-800 mr-5">Sign In</a>
+                                    <Link href="/user/login" className="text-center inline-block pt-5 underline text-sm tracking-wide text-gray-800 mr-5">Sign In
                                     </Link>
-                                    <Link href="/user/signup">
-                                        <a className="text-center inline-block pt-5 underline text-sm tracking-wide text-gray-800">Sign Up</a>
+                                    <Link href="/user/signup" className="text-center inline-block pt-5 underline text-sm tracking-wide text-gray-800">Sign Up
                                     </Link>
                                 </div>
                             </div>

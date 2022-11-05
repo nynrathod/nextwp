@@ -4,34 +4,18 @@ import Image from "next/image"
 export default function PostCard({ post }: { post: any }) {
     return (
         <>
-            <div className="p-4 md:w-1/3">
-                <Link href={`/posts${post.uri}`}>
-                    <a className="card">
-                        <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-                            <div style={{ position: 'relative', width: '100%', height: '215px' }}>
-                                <Image
-                                    alt="Mountains"
-                                    src={post?.featuredImage?.node?.sourceUrl}
-                                    layout="fill"
-                                    objectFit="contain"
-                                />
-                            </div>
-                            <div className="p-6">
-                                <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY</h2>
-                                <h1 className="title-font text-lg font-medium text-gray-900 mb-3">{post?.title}</h1>
-                                <article className="leading-relaxed mb-3 line-clamp-3" dangerouslySetInnerHTML={{ __html: post.content }}></article>
-                                <div className="flex items-center flex-wrap ">Learn More
-                                    <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                                        <path d="M5 12h14"></path>
-                                        <path d="M12 5l7 7-7 7"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </Link>
-            </div>
+            <Link href={`/posts${post.uri}`} className="card relative overflow-hidden block rounded-xl">
+                <Image className="w-full" src={post?.featuredImage?.node?.sourceUrl} alt="games" width={100} height={100} objectFit="contain" />
+                {/* <img className="w-full" src="https://cdn.tuk.dev/assets/components/111220/Blg-6/blog(2).png" alt="games" /> */}
+                <div className="py-2 px-4 w-full flex justify-between bg-gray-700">
+                    <p className="text-sm text-white font-semibold tracking-wide">Bruce Wayne</p>
+                    <p className="text-sm text-white font-semibold tracking-wide">13TH Oct, 2020</p>
+                </div>
+                <div className="bg-white px-4 py-4 rounded-bl-3xl rounded-br-3xl">
+                    <h1 className="text-lg text-gray-900 font-semibold tracking-wider">{post?.title}</h1>
+                    {/* <article className="leading-relaxed mb-3 line-clamp-3" dangerouslySetInnerHTML={{ __html: post.content }}></article> */}
+                </div>
+            </Link>
         </>
     )
 }
-
