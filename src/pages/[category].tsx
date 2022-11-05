@@ -21,21 +21,19 @@ export default function ArchivePage({ posts, categories }: { posts: any; categor
                     <div className="container px-5 pt-16 pb-24 mx-auto">
 
                         <ul className="flex flex-wrap justify-center text-sm font-medium text-center text-gray-500 dark:text-gray-400">
-                            <Link href="/articles" className={`${router.asPath == "/articles" ? "text-white bg-blue-600" : ""} "mr-2 inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white" `} aria-current="page">Show All
+                            <Link href="/articles" className="mr-2 inline-block py-3 px-4 text-white bg-blue-600 rounded-lg active" aria-current="page">Show All
                             </Link>
 
                             {
                                 categories.map((category: {
-                                    slug: String;
+                                    slug: Url;
                                     name: ReactNode; cid: React.Key | null | undefined;
                                 }) => {
                                     return (
-                                        <>
-                                            {/* {category.slug} */}
-                                            {/* <PostCard key={post.id} post={post}></PostCard> */}
-                                            <Link href={category.slug} key={category.cid} className={`${router.asPath == '/' + category.slug ? "text-white bg-blue-600" : ""} "mr-2 inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white" `}>
-                                                {category.name}
-                                            </Link></>
+                                        // <PostCard key={post.id} post={post}></PostCard>
+                                        <Link href={category.slug} key={category.cid} className="mr-2 inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white">
+                                            {category.name}
+                                        </Link>
                                     )
                                 })
                             }
@@ -62,11 +60,11 @@ export default function ArchivePage({ posts, categories }: { posts: any; categor
 export async function getStaticPaths() {
     const GET_CATEGORIES = gql`
     query CategoriesQuery {
-                                        categories(where: {exclude: "1"}) {
-                                nodes {
-                                name
+        categories(where: {exclude: "1"}) {
+            nodes {
+                name
                 slug
-                            databaseId
+                databaseId
             }
         }
     }`;
@@ -87,29 +85,29 @@ export async function getStaticProps({ params }: { params: any }) {
     const categoryName = params.toString();
     // console.log(category)
     const GET_POSTS = gql`
-                            query GetPostsByCategorySlug($categoryName: String) {
-                                posts(where: {categoryName: $categoryName} ) {
-                                nodes {
-                                title
+    query GetPostsByCategorySlug($categoryName: String) {
+        posts( where: {categoryName: $categoryName} ) {
+            nodes {
+                title
                 slug
-                            uri
-                            featuredImage {
-                                node {
-                                sourceUrl
-                            }
+                uri
+                featuredImage {
+                    node {
+                        sourceUrl
+                    }
                 }
             }
         }
 
     }
-
-                            `;
+    
+  `;
 
     const GET_CATEGORIES = gql`
-                            query CategoriesQuery {
-                                categories(where: {exclude: "1"}) {
-                                nodes {
-                                name
+    query CategoriesQuery {
+        categories(where: {exclude: "1"}) {
+            nodes {
+                name
                 slug
             }
         }
